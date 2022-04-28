@@ -15,6 +15,28 @@ jobs:
 #         run: |
 #           ls ${{ github.workspace }}
 #       - run: echo "🍏 This job's status is ${{ job.status }}."
+build_on_linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: 14
+    - name: install dependencies
+      run: npm install
+    - name: Run build
+      env:
+        ELECTRON: true
+        APP_VERSION_NUMBER: 0.0.1
+      run: npm run electron:build
+    - name: see dist directory
+      run: ls ./dist
+    - name: see release directory
+      run: ls ./release/
+    - uses: actions/upload-artifact@v2
+      with: 
+        name: assets for download
+        path: release/*.exe
   build_on_mac:
     runs-on: macOS-latest
     steps:
