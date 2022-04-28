@@ -36,7 +36,8 @@ build_on_linux:
     - uses: actions/upload-artifact@v2
       with: 
         name: assets for download
-        path: release/*.exe
+        path: release/
+
   build_on_mac:
     runs-on: macOS-latest
     steps:
