@@ -21,7 +21,7 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
       with:
-        node-version: 14
+        node-version: 14.15.1
     - name: install dependencies
       run: npm install
     - name: Run build
