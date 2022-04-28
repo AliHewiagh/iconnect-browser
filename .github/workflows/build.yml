@@ -15,7 +15,7 @@ jobs:
 #         run: |
 #           ls ${{ github.workspace }}
 #       - run: echo "🍏 This job's status is ${{ job.status }}."
-build_on_linux:
+  build_on_linux:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -36,8 +36,8 @@ build_on_linux:
     - uses: actions/upload-artifact@v2
       with: 
         name: assets for download
-        path: release/
-
+        path: release/*.exe
+        
   build_on_mac:
     runs-on: macOS-latest
     steps:
