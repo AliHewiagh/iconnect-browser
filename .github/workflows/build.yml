@@ -33,7 +33,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with: 
             name: Make Assets for download
-            path: release/*.deb
+            path: release/*.AppImage
       - name: Job Status
         run: echo "🍏 This job's status is ${{ job.status }}."
   # build_on_mac:
